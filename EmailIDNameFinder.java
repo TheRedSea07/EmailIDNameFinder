@@ -1,4 +1,5 @@
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.io.BufferedReader;
 
 class EmailIDNameFinder {
@@ -8,7 +9,11 @@ class EmailIDNameFinder {
         BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
         try {
             String emailID = consoleInput.readLine();
-            System.out.println(emailID);
+
+            //Construct URL address
+            URL webAddress = new URL("https", "www.southampton.ac.uk", "/people/" + emailID);
+
+            System.out.println(webAddress);
         }
         catch (Exception e) {
             System.out.println("Email ID Missing.");
